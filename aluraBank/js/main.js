@@ -20,6 +20,7 @@ formulario.addEventListener("submit", (e)=>{
 campoFormulario.forEach((campo)=>{
 campo.addEventListener("blur", ()=> verificarCampo(campo))
 campo.addEventListener("invalid", (evento)=> evento.preventDefault())
+
 });
 
 function verificarCampo(campo){
@@ -44,7 +45,9 @@ function verificarCampo(campo){
     const validarInputCheck = campo.checkValidity();
     if (!validarInputCheck){
         mensajesError.textContent=mensaje
+        campo.style.border = "2px solid red"
     }else{
         mensajesError.textContent=""
+        campo.style.border = "none"
     }
 }
